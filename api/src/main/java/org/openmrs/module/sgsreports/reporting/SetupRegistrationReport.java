@@ -36,7 +36,7 @@ public class SetupRegistrationReport {
 	
 	private PersonAttributeType patientPhoneNumber;
 	
-	private PersonAttributeType clinicLocation;
+	private PersonAttributeType hostInstitution;
 	
 	private List<VisitType> OPDvisitTypes = new ArrayList<VisitType>();
 	
@@ -109,7 +109,7 @@ public class SetupRegistrationReport {
 		dataSetDefinition.addColumn("firstNextOfKinPhone", basePatientData.getPersonAttribute(firstNextOfKinPhone), new HashMap<String, Object>());
 		dataSetDefinition.addColumn("secondNextOfKinPhone", basePatientData.getPersonAttribute(secondNextOfKinPhone), new HashMap<String, Object>());
 		dataSetDefinition.addColumn("patientPhoneNumber", basePatientData.getPersonAttribute(patientPhoneNumber), new HashMap<String, Object>());
-		dataSetDefinition.addColumn("clinicLocation", basePatientData.getPersonAttribute(clinicLocation), new HashMap<String, Object>());
+		dataSetDefinition.addColumn("clinicLocation", basePatientData.getPersonAttribute(hostInstitution), new HashMap<String, Object>());
 		
 		Map<String, Object> mappings = new HashMap<String, Object>();
 		mappings.put("startDate", "${startDate}");
@@ -119,12 +119,12 @@ public class SetupRegistrationReport {
 	}
 	
 	private void setupProperties() {
-		IPDvisitType = MetadataLookup.getVisitType("4cf675c6-9c30-4fa6-a827-9003e326a359");
+		IPDvisitType = MetadataLookup.getVisitType("c228eab1-3f10-11e4-adec-0800271c1b75");
 		OPDvisitTypes = Context.getVisitService().getAllVisitTypes();
 		OPDvisitTypes.remove(IPDvisitType);
-		firstNextOfKinPhone = MetadataLookup.getPersonAttributeType("93016867-67fd-4b2b-ab02-9adb697525dc");
-		secondNextOfKinPhone = MetadataLookup.getPersonAttributeType("bda0e3bc-d390-4154-be02-c74de41c0e38");
-		patientPhoneNumber = MetadataLookup.getPersonAttributeType("d16670f5-0862-4ef8-a249-7842ad3e151f");
-		clinicLocation = MetadataLookup.getPersonAttributeType("d109216c-bbc3-4856-a740-86c7e6f88564");
+		firstNextOfKinPhone = MetadataLookup.getPersonAttributeType("5d0f1d51-37c3-44fd-af19-d6b2a22e8291");
+		secondNextOfKinPhone = MetadataLookup.getPersonAttributeType("b401dd9f-2184-48c8-a07e-480ff9d839ac");
+		patientPhoneNumber = MetadataLookup.getPersonAttributeType("fedc4e0f-949e-4aeb-b5f0-0379bef14fc5");
+		hostInstitution = MetadataLookup.getPersonAttributeType("930aa7da-5b1e-4bfa-ac65-be32bf1d6096");
 	}
 }

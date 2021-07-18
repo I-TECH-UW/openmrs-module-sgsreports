@@ -9,7 +9,6 @@ import org.openmrs.module.sgsreports.reporting.SetupMAndMReport;
 import org.openmrs.module.sgsreports.reporting.SetupRegistrationReport;
 import org.openmrs.module.sgsreports.reporting.SetupSurgicalProcedureReport;
 import org.openmrs.module.sgsreports.reporting.SetupWeeklyReportGeneralPatients;
-import org.openmrs.module.sgsreports.reporting.SetupWeeklyReportPrivatePatients;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -94,18 +93,6 @@ public class SGSSetupReportsFormController {
 	@RequestMapping("/module/sgsreports/remove_Ward_Report")
 	public ModelAndView removeWardReport() throws Exception {
 		
-		return new ModelAndView(new RedirectView("sgsreports.form"));
-	}
-	
-	@RequestMapping("/module/sgsreports/register_WeeklyReportPrivatePatients")
-	public ModelAndView registerWeeklyReportPrivatePatientsReport() throws Exception {
-		new SetupWeeklyReportPrivatePatients().setup();
-		return new ModelAndView(new RedirectView("sgsreports.form"));
-	}
-	
-	@RequestMapping("/module/sgsreports/remove_WeeklyReportPrivatePatients")
-	public ModelAndView removeWeeklyReportPrivatePatientsReport() throws Exception {
-		new SetupWeeklyReportPrivatePatients().delete();
 		return new ModelAndView(new RedirectView("sgsreports.form"));
 	}
 	

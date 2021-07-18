@@ -15,7 +15,6 @@ import org.openmrs.module.reporting.cohort.definition.CohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.DateObsCohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.EncounterCohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.MappedParametersCohortDefinition;
-import org.openmrs.module.reporting.cohort.definition.PersonAttributeCohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.SqlCohortDefinition;
 import org.openmrs.module.reporting.common.DurationUnit;
 import org.openmrs.module.reporting.common.ObjectUtil;
@@ -41,20 +40,6 @@ public class Cohorts {
 	public static SqlCohortDefinition createPatientsNotVoided() {
 		SqlCohortDefinition patientsNotVoided = new SqlCohortDefinition("select distinct p.patient_id from patient p where p.voided=0");
 		return patientsNotVoided;
-	}
-	
-	public static PersonAttributeCohortDefinition getPrivatePatients() {
-		PersonAttributeCohortDefinition privatePatientsCohortDefinition = new PersonAttributeCohortDefinition();
-		privatePatientsCohortDefinition.setAttributeType(MetadataLookup.getPersonAttributeType("cf467d15-883a-4197-acfd-41f514181d26"));
-		privatePatientsCohortDefinition.setValues(Arrays.asList(String.valueOf(MetadataLookup.getConcept("3404af3d-b2ab-4f79-b39f-08d172544daa").getConceptId())));
-		return privatePatientsCohortDefinition;
-	}
-	
-	public static PersonAttributeCohortDefinition getGeneralPatients() {
-		PersonAttributeCohortDefinition generalPatientsCohortDefinition = new PersonAttributeCohortDefinition();
-		generalPatientsCohortDefinition.setAttributeType(MetadataLookup.getPersonAttributeType("cf467d15-883a-4197-acfd-41f514181d26"));
-		generalPatientsCohortDefinition.setValues(Arrays.asList(String.valueOf(MetadataLookup.getConcept("e0a8fa3e-52d5-486d-80cf-b5ad885df5e3").getConceptId())));
-		return generalPatientsCohortDefinition;
 	}
 	
 	public static AgeCohortDefinition createXtoYAgeCohort(String name, int minAge, int maxAge) {

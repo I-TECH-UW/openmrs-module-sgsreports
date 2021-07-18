@@ -19,7 +19,6 @@ import org.openmrs.api.context.Context;
 import org.openmrs.module.reporting.cohort.definition.CohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.CompositionCohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.GenderCohortDefinition;
-import org.openmrs.module.reporting.cohort.definition.PersonAttributeCohortDefinition;
 import org.openmrs.module.reporting.cohort.definition.VisitCohortDefinition;
 import org.openmrs.module.reporting.dataset.definition.CohortIndicatorDataSetDefinition;
 import org.openmrs.module.reporting.evaluation.parameter.Mapped;
@@ -72,25 +71,13 @@ public class SetupWeeklyReportGeneralPatients {
 		rd.setName("Weekly Report General Patients Report");
 		rd.addDataSetDefinition(createBaseDataSet(), ParameterizableUtil.createParameterMappings("endDate=${endDate},startDate=${startDate}"));
 		
-		// We only wont to see general patients in this report
-		PersonAttributeCohortDefinition generalPatients = Cohorts.getGeneralPatients();
-		
 		VisitCohortDefinition patientsWithAnyVisitsAtLocationBetweenDates = new VisitCohortDefinition();
 		patientsWithAnyVisitsAtLocationBetweenDates.addParameter(new Parameter("startedOnOrAfter", "Started on or after", Date.class));
 		patientsWithAnyVisitsAtLocationBetweenDates.addParameter(new Parameter("startedOnOrBefore", "Started on or before", Date.class));
 		patientsWithAnyVisitsAtLocationBetweenDates.addParameter(getLocationListParameter());
 		patientsWithAnyVisitsAtLocationBetweenDates.setVisitTypeList(allVisitTypes);
 		
-		CompositionCohortDefinition generalPatientsWithAnyVisitAtLocation = new CompositionCohortDefinition();
-		generalPatientsWithAnyVisitAtLocation.setName("newPediatricClientsFemales");
-		generalPatientsWithAnyVisitAtLocation.addParameter(new Parameter("startedOnOrAfter", "Started on or after", Date.class));
-		generalPatientsWithAnyVisitAtLocation.addParameter(new Parameter("startedOnOrBefore", "Started on or before", Date.class));
-		generalPatientsWithAnyVisitAtLocation.addParameter(getLocationListParameter());
-		generalPatientsWithAnyVisitAtLocation.getSearches().put("1", new Mapped<CohortDefinition>(generalPatients, null));
-		generalPatientsWithAnyVisitAtLocation.getSearches().put("2", new Mapped<CohortDefinition>(patientsWithAnyVisitsAtLocationBetweenDates, ParameterizableUtil.createParameterMappings("startedOnOrAfter=${startedOnOrAfter},startedOnOrBefore=${startedOnOrBefore},locationList=${locationList}")));
-		generalPatientsWithAnyVisitAtLocation.setCompositionString("(1 and 2");
-		
-		rd.setBaseCohortDefinition(generalPatientsWithAnyVisitAtLocation, ParameterizableUtil.createParameterMappings("startedOnOrAfter=${startedOnOrAfter},startedOnOrBefore=${startedOnOrBefore},locationList=${locationList}"));
+		rd.setBaseCohortDefinition(patientsWithAnyVisitsAtLocationBetweenDates, ParameterizableUtil.createParameterMappings("startedOnOrAfter=${startedOnOrAfter},startedOnOrBefore=${startedOnOrBefore},locationList=${locationList}"));
 		Helper.saveReportDefinition(rd);
 		return rd;
 	}
