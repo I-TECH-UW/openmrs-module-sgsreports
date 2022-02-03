@@ -82,7 +82,7 @@ $(document).ready(function(){
 		<td colspan="2"><center>Action</center></td>
 	</tr>
 	<tr>
-		<td rowspan="11" class="tabletd">Sustainable Global Surgery Reports</td>
+		<td rowspan="12" class="tabletd">Sustainable Global Surgery Reports</td>
 		<td>OR Report</td>
 		<td>Central</td>
 		<td><a
@@ -90,6 +90,16 @@ $(document).ready(function(){
 			onclick=msgreg(this)>(Re) register</a></td>
 		<td><a
 			href="${pageContext.request.contextPath}/module/sgsreports/remove_OR_Report.form"
+			onclick=msgrem(this)>Remove</a></td>
+	</tr>
+	<tr>
+		<td>Surgical Priority Report</td>
+		<td>Central</td>
+		<td><a
+			href="${pageContext.request.contextPath}/module/sgsreports/register_surgical_priority_report.form"
+			onclick=msgreg(this)>(Re) register</a></td>
+		<td><a
+			href="${pageContext.request.contextPath}/module/sgsreports/remove_surgical_priority_report.form"
 			onclick=msgrem(this)>Remove</a></td>
 	</tr>
 	<tr>

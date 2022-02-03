@@ -25,6 +25,7 @@ import org.openmrs.module.reporting.report.service.ReportService;
 import org.openmrs.module.sgsreports.reporting.SetupFormPrintReport;
 import org.openmrs.module.sgsreports.reporting.SetupMAndMReport;
 import org.openmrs.module.sgsreports.reporting.SetupRegistrationReport;
+import org.openmrs.module.sgsreports.reporting.SetupSurgicalPriorityReport;
 import org.openmrs.module.sgsreports.reporting.SetupSurgicalProcedureReport;
 
 import java.util.List;
@@ -65,6 +66,7 @@ public class CleanReportingTablesAndRegisterAllReports {
 		new SetupSurgicalProcedureReport().setup();
 		new SetupRegistrationReport().setup();
 		new SetupFormPrintReport().setup();
+		new SetupSurgicalPriorityReport().setup();
 	}
 	
 }

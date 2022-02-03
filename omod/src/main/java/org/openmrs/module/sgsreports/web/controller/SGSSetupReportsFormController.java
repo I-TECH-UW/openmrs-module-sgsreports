@@ -7,6 +7,7 @@ import org.openmrs.module.sgsreports.reporting.SetupFormPrintReport;
 import org.openmrs.module.sgsreports.reporting.SetupHospitalMonthlyIndicatorsReport;
 import org.openmrs.module.sgsreports.reporting.SetupMAndMReport;
 import org.openmrs.module.sgsreports.reporting.SetupRegistrationReport;
+import org.openmrs.module.sgsreports.reporting.SetupSurgicalPriorityReport;
 import org.openmrs.module.sgsreports.reporting.SetupSurgicalProcedureReport;
 import org.openmrs.module.sgsreports.reporting.SetupWeeklyReportGeneralPatients;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,18 @@ public class SGSSetupReportsFormController {
 	
 	@RequestMapping(value = "/module/sgsreports/sgsreports", method = RequestMethod.GET)
 	public void manage() {
+	}
+	
+	@RequestMapping("/module/sgsreports/register_surgical_priority_report")
+	public ModelAndView registerSurgicalPriorityReport() throws Exception {
+		new SetupSurgicalPriorityReport().setup();
+		return new ModelAndView(new RedirectView("sgsreports.form"));
+	}
+	
+	@RequestMapping("/module/sgsreports/remove_surgical_priority_report")
+	public ModelAndView removeSurgicalPriorityReport() throws Exception {
+		new SetupSurgicalPriorityReport().delete();
+		return new ModelAndView(new RedirectView("sgsreports.form"));
 	}
 	
 	@RequestMapping("/module/sgsreports/register_surgical_procedure_report")
