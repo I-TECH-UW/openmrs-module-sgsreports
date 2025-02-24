@@ -22,11 +22,11 @@ import org.openmrs.module.reporting.report.ReportRequest.Status;
 import org.openmrs.module.reporting.report.definition.ReportDefinition;
 import org.openmrs.module.reporting.report.definition.service.ReportDefinitionService;
 import org.openmrs.module.reporting.report.service.ReportService;
-import org.openmrs.module.sgsreports.reporting.SetupFormPrintReport;
-import org.openmrs.module.sgsreports.reporting.SetupMAndMReport;
-import org.openmrs.module.sgsreports.reporting.SetupRegistrationReport;
-import org.openmrs.module.sgsreports.reporting.SetupSurgicalPriorityReport;
-import org.openmrs.module.sgsreports.reporting.SetupSurgicalProcedureReport;
+import org.openmrs.module.sgsreports.reports.SetupFormPrintReport;
+import org.openmrs.module.sgsreports.reports.SetupMAndMReport;
+import org.openmrs.module.sgsreports.reports.SetupRegistrationReport;
+import org.openmrs.module.sgsreports.reports.SetupSurgicalPriorityReport;
+import org.openmrs.module.sgsreports.reports.SetupSurgicalProcedureReport;
 
 import java.util.List;
 

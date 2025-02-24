@@ -17,9 +17,9 @@
 	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
 	<!-- /Base Module Properties -->
 	
-	<require_version>1.11.6</require_version>
+	<require_version>${openmrsPlatformVersion}</require_version>
 	<require_modules>
-		<require_module version="0.10.4">org.openmrs.module.reporting</require_module>
+		<require_module version="${reportingVersion}">org.openmrs.module.reporting</require_module>
 		<require_module version="${calculationVersion}">org.openmrs.calculation</require_module>
 	</require_modules>
 	
@@ -107,4 +107,3 @@
 	<!-- /Internationalization -->
 	
 </module>
-
