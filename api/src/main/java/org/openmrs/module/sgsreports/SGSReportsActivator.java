@@ -11,7 +11,10 @@ package org.openmrs.module.sgsreports;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.BaseModuleActivator;
+import org.openmrs.module.reporting.report.manager.ReportManagerUtil;
+import org.openmrs.module.sgsreports.reports.GeneralReportManager;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
@@ -24,6 +27,12 @@ public class SGSReportsActivator extends BaseModuleActivator {
 	 * @see #started()
 	 */
 	public void started() {
+		try {
+			ReportManagerUtil.setupReport(Context.getRegisteredComponents(GeneralReportManager.class).get(0));
+		}
+		catch (Exception e) {
+			log.error("Failed to setup report because of: " + e.getMessage());
+		}
 		log.info("Started SGS Reports");
 	}
 	

@@ -1,4 +1,4 @@
-package org.openmrs.module.sgsreports.reporting;
+package org.openmrs.module.sgsreports.reports;
 
 /**
  * Report Setup / teardown interface

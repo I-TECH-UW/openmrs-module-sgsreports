@@ -1,4 +1,4 @@
-package org.openmrs.module.sgsreports.reporting;
+package org.openmrs.module.sgsreports.reports;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +19,8 @@ import org.openmrs.module.reporting.report.ReportDesign;
 import org.openmrs.module.reporting.report.definition.ReportDefinition;
 import org.openmrs.module.reporting.report.service.ReportService;
 import org.openmrs.module.sgsreports.dataset.definition.SurgicalLogDataSetDefinition;
-import org.openmrs.module.sgsreports.reporting.library.BasePatientDataLibrary;
-import org.openmrs.module.sgsreports.reporting.library.DataFactory;
+import org.openmrs.module.sgsreports.reports.library.BasePatientDataLibrary;
+import org.openmrs.module.sgsreports.reports.library.DataFactory;
 import org.openmrs.module.sgsreports.util.MetadataLookup;
 
 public class SetupSurgicalProcedureReport {

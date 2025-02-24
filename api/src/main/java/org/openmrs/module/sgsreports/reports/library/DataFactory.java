@@ -11,7 +11,7 @@
  *
  * Copyright (C) OpenMRS, LLC.  All Rights Reserved.
  */
-package org.openmrs.module.sgsreports.reporting.library;
+package org.openmrs.module.sgsreports.reports.library;
 
 import java.util.Arrays;
 import java.util.Date;

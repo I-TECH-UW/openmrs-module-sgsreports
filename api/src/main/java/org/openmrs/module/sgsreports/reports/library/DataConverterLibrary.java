@@ -1,4 +1,4 @@
-package org.openmrs.module.sgsreports.reporting.library;
+package org.openmrs.module.sgsreports.reports.library;
 
 import org.openmrs.Concept;
 import org.openmrs.Encounter;

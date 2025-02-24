@@ -53,9 +53,9 @@
 	</pluginRepositories>
 
 	<properties>
-		<openmrsPlatformVersion>1.11.6</openmrsPlatformVersion>
-		<reportingVersion>0.10.4</reportingVersion>
-		<calculationVersion>1.2</calculationVersion>
+		<openmrsPlatformVersion>2.5.0</openmrsPlatformVersion>
+		<reportingVersion>1.26.0</reportingVersion>
+		<calculationVersion>1.3.0</calculationVersion>
 	</properties>
 
 	<dependencies>
